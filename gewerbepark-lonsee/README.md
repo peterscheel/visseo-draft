@@ -65,6 +65,31 @@ Optional: Cloudflare Turnstile ergänzen, falls doch Spam kommt.
 - [ ] Kennzahlen (1.400 m², 1.000 m², 7 Hallentore, Daten der Chronik) bestätigen
 - [ ] Domain in `sitemap.xml`, `robots.txt` und den `<link rel="canonical">`-Tags ist `https://gewerbepark-lonsee.de`
 
+## Neue Nachricht veröffentlichen
+
+Die Nachrichten unter **Aktuelles → Nachrichten** stehen in `assets/data/nachrichten.json`.
+Die neueste Nachricht erscheint automatisch auch im „Aktuell“-Kasten auf der Startseite.
+
+Neuen Eintrag **oben** in die Liste einfügen (Komma zwischen den Einträgen nicht vergessen):
+
+```json
+{
+  "datum": "2026-11-03",
+  "titel": "Überschrift der Nachricht",
+  "standort": "Gewerbepark 1",
+  "text": "Erster Absatz.\n\nZweiter Absatz.",
+  "bild": "assets/img/mein-bild.jpg",
+  "link": "gewerbepark-1.html",
+  "linktext": "Zum Gewerbepark 1"
+}
+```
+
+- Pflicht: `datum` (Format JJJJ-MM-TT) und `titel`. Alles andere ist optional.
+- `\n\n` im Text erzeugt einen neuen Absatz.
+- Bilder vorher nach `assets/img/` hochladen (JPG, ca. 1600 px breit).
+- Nachrichten der letzten 45 Tage bekommen automatisch ein „Neu“-Schild.
+- Direktlink auf eine Nachricht: `aktuelles#n-2026-11-03`, auf die Chronik: `aktuelles#chronik`.
+
 ## Inhalte ändern
 
 - **Texte:** direkt in der jeweiligen `.html`-Datei. Kopf- und Fußbereich stehen in jeder Datei; bei Änderungen dort alle Seiten anpassen.

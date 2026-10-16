@@ -157,6 +157,68 @@
     if (m) { m.className = "form-msg ok"; m.textContent = "Vielen Dank! Ihre Nachricht ist angekommen."; m.hidden = false; }
   }
 
+
+  /* Aktuelles: Reiter Nachrichten / Chronik (#chronik öffnet die Chronik) */
+  var tabs = document.querySelectorAll('.tabs [role="tab"]');
+  function openTab(id) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute("aria-controls") === id;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () {
+      var id = t.getAttribute("aria-controls");
+      openTab(id);
+      history.replaceState(null, "", id === "panel-chronik" ? "#chronik" : location.pathname);
+    });
+  });
+  if (tabs.length && location.hash === "#chronik") openTab("panel-chronik");
+
+  /* Nachrichten aus assets/data/nachrichten.json */
+  var MON = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+  var MON_K = ["JAN","FEB","MÄR","APR","MAI","JUN","JUL","AUG","SEP","OKT","NOV","DEZ"];
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function parseDate(d) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ""); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
+  function fmt(d) { return d ? d.getDate() + ". " + MON[d.getMonth()] + " " + d.getFullYear() : ""; }
+  var list = document.querySelector("[data-news-list]");
+  var latest = document.querySelector("[data-news-latest]");
+  if (list || latest) {
+    fetch("assets/data/nachrichten.json", { cache: "no-cache" })
+      .then(function (r) { return r.json(); })
+      .then(function (items) {
+        items = (items || []).filter(function (n) { return n && n.titel; })
+          .sort(function (a, b) { return (b.datum || "").localeCompare(a.datum || ""); });
+        if (latest && items[0]) {
+          var d0 = parseDate(items[0].datum);
+          latest.href = "aktuelles.html#n-" + items[0].datum;
+          latest.querySelector(".date").innerHTML = d0 ? MON_K[d0.getMonth()] + "<br>" + d0.getFullYear() : "NEU";
+          latest.querySelector("b").textContent = items[0].titel;
+        }
+        if (!list) return;
+        if (!items.length) { list.innerHTML = '<p class="sub">Aktuell gibt es keine Nachrichten.</p>'; return; }
+        var now = new Date();
+        list.innerHTML = items.map(function (n) {
+          var d = parseDate(n.datum);
+          var isNew = d && (now - d) < 1000 * 60 * 60 * 24 * 45;
+          var img = n.bild ? '<div class="pimg"><img src="' + esc(n.bild) + '" alt="" loading="lazy"' + (/\.png$/i.test(n.bild) ? ' class="plan"' : "") + "></div>" : "";
+          var paras = String(n.text || "").split(/\n\s*\n/).map(function (p) { return "<p>" + esc(p).replace(/\n/g, "<br>") + "</p>"; }).join("");
+          return '<article class="post' + (img ? "" : " noimg") + (isNew ? " new" : "") + '" id="n-' + esc(n.datum) + '">' + img +
+            '<div class="pbody"><div class="meta"><time datetime="' + esc(n.datum) + '">' + fmt(d) + "</time>" +
+            (n.standort ? '<span class="status">' + esc(n.standort) + "</span>" : "") + "</div>" +
+            "<h2>" + esc(n.titel) + '</h2><div class="ptext">' + paras + "</div>" +
+            (n.link ? '<a class="link" href="' + esc(n.link) + '">' + esc(n.linktext || "Mehr erfahren") + " →</a>" : "") +
+            "</div></article>";
+        }).join("");
+        if (location.hash.indexOf("#n-") === 0) {
+          var el = document.getElementById(location.hash.slice(1));
+          if (el) el.scrollIntoView();
+        }
+      })
+      .catch(function () { if (list) list.innerHTML = '<p class="sub">Die Nachrichten konnten nicht geladen werden.</p>'; });
+  }
+
   /* Jahr im Footer */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
