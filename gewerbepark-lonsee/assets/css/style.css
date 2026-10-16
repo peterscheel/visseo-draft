@@ -1398,3 +1398,39 @@ html.anim .site-header .nav>ul>li:nth-child(2){animation-delay:.06s}html.anim .s
 .topbar .tb-dot{background:var(--orange)}
 .progress{background:var(--orange)}
 .link,.route .acts a{color:inherit}
+
+/* ===== Logo: Gebäude mit Licht ===== */
+.brand svg.lm{overflow:visible}
+.lm .o{fill:none;stroke:currentColor;stroke-width:4;stroke-linejoin:round}
+.lm .sd{fill:var(--soft);transition:fill .4s}
+.lm .w{fill:transparent;stroke:currentColor;stroke-width:2.4;transition:fill .35s ease,stroke .35s ease;transition-delay:calc(var(--i) * 45ms)}
+.lm .w.g{fill:var(--orange)}
+.lm .b{stroke:var(--orange);stroke-width:5;stroke-linecap:round;transform-origin:50% 88px;transition:transform .5s cubic-bezier(.2,.7,.1,1)}
+.brand:hover .lm .w,.brand:focus-visible .lm .w{fill:var(--orange)}
+.brand:hover .lm .b{transform:scaleX(1.12)}
+.brand:hover .lm{filter:drop-shadow(0 0 10px rgba(184,197,32,.45))}
+.brand .lm{transition:filter .4s,transform .4s cubic-bezier(.2,.7,.1,1)}
+.brand:hover .lm{transform:translateY(-2px)}
+.site-footer .lm .sd{fill:rgba(255,255,255,.08)}
+/* Wortmarke */
+.brand .wm-a{font-family:"Heros",Arial,sans-serif!important;font-weight:700;letter-spacing:.01em!important;font-size:24px!important;line-height:1}
+.brand .wm-b{display:flex!important;align-items:center;gap:8px;font-weight:600!important;letter-spacing:.5em!important;font-size:10.5px!important;margin-top:7px!important}
+.brand .wm-b::before{content:"";width:18px;height:3px;background:var(--orange);flex:none;transition:width .4s cubic-bezier(.2,.7,.1,1)}
+.brand:hover .wm-b::before{width:30px}
+@media (max-width:760px){.brand .wm-a{font-size:20px!important}.brand .wm-b{font-size:9.5px!important;letter-spacing:.42em!important}.brand .wm-b::before{width:12px}}
+/* Beim Laden: Gebäude zeichnet sich, dann gehen die Lichter an */
+html.anim .site-header .lm .o{stroke-dasharray:220;stroke-dashoffset:220;animation:lmDraw 1.1s .1s cubic-bezier(.4,.1,.2,1) forwards}
+html.anim .site-header .lm .w{animation:lmOn .5s both;animation-delay:calc(.9s + var(--i) * 70ms)}
+html.anim .site-header .lm .w.g{animation:lmOnG .5s both;animation-delay:calc(.9s + var(--i) * 70ms)}
+@keyframes lmDraw{to{stroke-dashoffset:0}}
+@keyframes lmOn{0%{fill:transparent;stroke-opacity:0}50%{fill:var(--orange);stroke-opacity:1}100%{fill:transparent;stroke-opacity:1}}
+@keyframes lmOnG{0%{fill:transparent;stroke-opacity:0}100%{fill:var(--orange);stroke-opacity:1}}
+
+/* ===== Laufband: Logos leuchten beim Überfahren in Lime ===== */
+.marquee.dark li a{transition:transform .35s cubic-bezier(.2,.7,.1,1),filter .35s}
+.marquee.dark .lgw{position:relative;display:inline-block;line-height:0}
+.marquee.dark .lgw img{display:block}
+.marquee.dark li a:hover img,.marquee.dark li a:focus-visible img{transform:none!important}
+.marquee.dark li a .glow{position:absolute;inset:0;background:var(--orange);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat;opacity:0;transition:opacity .35s;pointer-events:none}
+.marquee.dark li a:hover,.marquee.dark li a:focus-visible{transform:scale(1.3);filter:drop-shadow(0 0 6px rgba(184,197,32,.9)) drop-shadow(0 0 18px rgba(184,197,32,.55))}
+.marquee.dark li a:hover .glow,.marquee.dark li a:focus-visible .glow{opacity:1}

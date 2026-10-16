@@ -388,6 +388,15 @@
     addEventListener("scroll", pu, { passive: true }); pu();
   }
 
+  /* Laufband: Leucht-Ebene in Logoform */
+  document.querySelectorAll(".marquee li a img").forEach(function (img) {
+    var w = document.createElement("span"); w.className = "lgw";
+    img.parentNode.insertBefore(w, img); w.appendChild(img);
+    var g = document.createElement("span"); g.className = "glow";
+    g.style.setProperty("--m", "url('" + img.src + "')");
+    w.appendChild(g);
+  });
+
   /* Jahr im Footer */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
