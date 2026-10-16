@@ -9,6 +9,7 @@
 @font-face{font-family:"Inter Display";src:url("../fonts/interd-600.woff") format("woff");font-weight:600 700;font-display:swap}
 /* Logo-Wortmarke */
 @font-face{font-family:"Heros Cn";src:url("../fonts/heroscn-700.woff") format("woff");font-weight:700;font-display:swap}
+@font-face{font-family:"Heros";src:url("../fonts/heros-700.woff") format("woff");font-weight:700;font-display:swap}
 
 :root{
   --bg:#FFFFFF;
@@ -1032,3 +1033,37 @@ h1 em,h2 em,h3 em,.big em,.pull em,.f-line em{color:var(--orange)}
 .route .acts a,.route .acts button{border-bottom-color:var(--orange)}
 .hx-art,.cl-art{background:var(--soft)}
 .cl-art{background:#fff}
+
+/* ===== Breitere Überschriften-Schrift (Helvetica-Stil statt Condensed) ===== */
+:root{--cond:"Heros","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wm-a{font-family:"Heros Cn","Arial Narrow",sans-serif}
+h1,h2,h3,.pull,.big,.f-line,.rows h3,.card3 h3{letter-spacing:-.01em!important;line-height:1.05!important}
+.hx h1{font-size:clamp(38px,4.3vw,66px)}
+.sec-head h1,.sec-head h2,.finder-intro h2{font-size:clamp(32px,3.8vw,54px)}
+.band-head h1,.band-head h2{font-size:clamp(36px,4.6vw,68px)}
+.detail h1,.k-side h1{font-size:clamp(38px,4.2vw,64px)}
+.lage h1{font-size:clamp(32px,3.6vw,54px)}
+.mix .pull{font-size:clamp(30px,3.4vw,50px)}
+.closing2 .big{font-size:clamp(36px,4.4vw,64px)}
+.cta-strip h2{font-size:clamp(28px,3.2vw,46px)}
+.rows a h3{font-size:clamp(20px,1.8vw,26px)!important}
+.card3 h3{font-size:clamp(24px,2.1vw,32px)}
+.post h2{font-size:clamp(24px,2.5vw,36px)}
+.stats b{font-size:clamp(38px,3.8vw,58px);letter-spacing:-.02em}
+.figs b{font-size:clamp(32px,3vw,46px);letter-spacing:-.02em}
+.mini b,.facts3 b{letter-spacing:-.01em}
+.card3 .num{font-size:60px;letter-spacing:-.02em}
+.f-line{font-size:clamp(24px,2.2vw,32px)}
+.f-tel{font-size:clamp(26px,2.2vw,32px)}
+.k-side .phone{font-size:clamp(28px,2.8vw,40px)}
+.tl .d{font-size:22px}
+.nav>ul>li>a,.site-header .cta{font-size:15px;letter-spacing:.04em}
+@media (max-width:760px){
+  .hx h1{font-size:clamp(30px,8.2vw,38px)}
+  .band-head h1,.detail h1,.k-side h1{font-size:36px}
+  .sec-head h2,.finder-intro h2{font-size:30px}
+  .mix .pull{font-size:28px}
+  .closing2 .big{font-size:36px}
+  .stats b{font-size:30px}
+  .textpage h1{font-size:30px}
+}
