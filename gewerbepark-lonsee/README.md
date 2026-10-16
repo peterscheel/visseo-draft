@@ -12,7 +12,8 @@ Reines HTML, CSS und JavaScript – kein Build-Schritt, keine Abhängigkeiten, k
 | `assets/css/style.css` | Gesamtes Styling (Farben oben als Variablen) |
 | `assets/js/main.js` | Menü, Mieter-Filter, Mieter-Finder, Formulare, „Adresse kopieren“ |
 | `assets/img/`, `assets/logos/`, `assets/fonts/` | Bilder (WebP + JPG/PNG), Mieter-Logos, Schrift (TeX Gyre Heros, selbst gehostet) |
-| `functions/api/kontakt.js` | Cloudflare Pages Function für Kontaktformular und Flächen-Alarm |
+| `functions/api/kontakt.js` | Logik für Kontaktformular und Flächen-Alarm (E-Mail-Versand) |
+| `worker/index.js`, `wrangler.jsonc`, `.assetsignore` | Einrichtung als Cloudflare Worker |
 | `_headers` | Sicherheits- und Cache-Header für Cloudflare |
 | `404.html`, `sitemap.xml`, `robots.txt`, Favicons | Standard-Dateien |
 
@@ -24,25 +25,28 @@ python3 -m http.server 8000
 ```
 (Das Formular funktioniert lokal nicht – es braucht die Cloudflare Function.)
 
-## Auf GitHub + Cloudflare Pages veröffentlichen
+## Veröffentlichen (GitHub + Cloudflare)
 
-1. Neues GitHub-Repository anlegen und den Inhalt dieses Ordners hochladen (die Dateien liegen direkt im Root des Repos).
-2. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → Repository auswählen.
-3. Build-Einstellungen:
-   - Framework preset: **None**
-   - Build command: *(leer lassen)*
-   - Build output directory: **/**
-4. **Save and Deploy**. Die Seite ist danach unter `*.pages.dev` erreichbar.
-5. Eigene Domain: im Pages-Projekt → **Custom domains** → `gewerbepark-lonsee.de` (und `www.`) hinzufügen.
+Das Projekt läuft auf beiden Cloudflare-Varianten:
 
-Jeder Push auf den Haupt-Branch veröffentlicht automatisch neu.
+**A) Cloudflare Worker (so ist es aktuell eingerichtet: Worker `visseo-draft`)**
+- Konfiguration steht in `wrangler.jsonc`. Der `name` dort muss exakt dem Worker-Namen in Cloudflare entsprechen.
+- `worker/index.js` liefert die Seiten aus und beantwortet `/api/kontakt`.
+- `.assetsignore` sorgt dafür, dass Worker-Code, Konfiguration und README nicht öffentlich ausgeliefert werden.
+- Jeder Push auf den Haupt-Branch baut und veröffentlicht automatisch (Workers Builds, Deploy-Befehl `npx wrangler deploy`).
+- Domain: Worker → Settings → **Domains & Routes** → **Add → Custom domain**.
+
+**B) Cloudflare Pages (Alternative)**
+- Workers & Pages → Create → Reiter **Pages** → Connect to Git.
+- Framework **None**, Build command leer, Output directory **/**. Pages nutzt automatisch `functions/api/kontakt.js`.
+- Domain: Pages-Projekt → **Custom domains**.
 
 ## Kontaktformular einrichten (E-Mail-Versand)
 
 Das Formular schickt die Anfrage an `/api/kontakt`. Die Function versendet sie per [Resend](https://resend.com) (kostenloser Tarif reicht).
 
 1. Bei Resend registrieren, Domain `gewerbepark-lonsee.de` verifizieren (DNS-Einträge bei Cloudflare setzen), API-Key erstellen.
-2. In Cloudflare: Pages-Projekt → **Settings** → **Variables and Secrets** (für *Production*):
+2. In Cloudflare: Worker bzw. Pages-Projekt → **Settings** → **Variables and Secrets** (für *Production*):
    - `RESEND_API_KEY` = API-Key (Typ **Secret**)
    - `CONTACT_TO` = Empfängeradresse, z. B. die von Gerrit Korner (mehrere mit Komma)
    - `CONTACT_FROM` = z. B. `Gewerbepark Lonsee <kontakt@gewerbepark-lonsee.de>`
