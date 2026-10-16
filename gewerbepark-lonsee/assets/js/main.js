@@ -249,6 +249,44 @@
     }
   }
 
+  /* Gebäude: Zeichnung ↔ Foto */
+  document.querySelectorAll(".cl-art").forEach(function (b) {
+    var art = b;
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { art.classList.add("play"); io.disconnect(); } });
+      }, { threshold: 0.4 });
+      io.observe(art);
+    } else art.classList.add("play");
+    b.addEventListener("click", function (ev) {
+      var r = b.getBoundingClientRect();
+      var x = ev.clientX ? ev.clientX - r.left : r.width / 2, y = ev.clientY ? ev.clientY - r.top : r.height / 2;
+      b.style.setProperty("--cx", x + "px"); b.style.setProperty("--cy", y + "px");
+      var on = b.classList.toggle("real");
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.setAttribute("aria-label", on ? "Zurück zur Zeichnung" : "Foto des Gewerbepark 1 anzeigen");
+    });
+  });
+
+  /* Google Maps erst nach Klick laden */
+  var gm = document.querySelector("[data-gmap]");
+  if (gm) {
+    var tabs = document.querySelectorAll(".gmap-tabs [data-q]"), cur = tabs[0];
+    var src = function (t) { return "https://maps.google.com/maps?q=" + encodeURIComponent(t.dataset.q) + "&z=" + (t.dataset.z || 15) + "&hl=de&output=embed"; };
+    var load = function () {
+      var f = gm.querySelector("iframe");
+      if (!f) { f = document.createElement("iframe"); f.title = "Google Maps: Gewerbepark Lonsee"; f.loading = "lazy"; f.referrerPolicy = "no-referrer-when-downgrade"; f.allowFullscreen = true; gm.innerHTML = ""; gm.appendChild(f); gm.classList.add("on"); }
+      f.src = src(cur);
+    };
+    gm.querySelector("[data-gmap-load]").addEventListener("click", load);
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () {
+        cur = t; tabs.forEach(function (x) { x.setAttribute("aria-selected", x === t ? "true" : "false"); });
+        if (gm.classList.contains("on")) load();
+      });
+    });
+  }
+
   /* Jahr im Footer */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
