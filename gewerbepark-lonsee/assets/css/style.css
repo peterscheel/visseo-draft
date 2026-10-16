@@ -1372,3 +1372,11 @@ html.anim .site-header .nav>ul>li:nth-child(2){animation-delay:.06s}html.anim .s
 .sn-note{margin-top:16px;font-size:13px;color:var(--faint)}
 @media (max-width:900px){.sn-row{grid-template-columns:1fr}}
 @media (max-width:640px){.sn-fig{padding:12px}.sn-fig figcaption{flex-direction:column;gap:2px}}
+
+/* Ohne // vor Kickern, ohne Hinweis-Button, Zusatz-Mieter wie die anderen Kacheln */
+.kicker::before,.subhead::before,.f-col .lbl::before{content:none!important}
+.cl-art .bld-sm{margin-bottom:0}
+.legend li.extra a{border:1px solid var(--line)!important;background:#fff}
+.legend li.extra a:hover{border-color:var(--orange)!important}
+.legend li.extra .n{background:var(--ink)!important;color:#fff!important;width:26px!important;height:26px!important}
+.legend li.extra .n svg{width:14px;height:14px}
