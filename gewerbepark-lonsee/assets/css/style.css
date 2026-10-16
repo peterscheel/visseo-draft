@@ -831,3 +831,12 @@ h1,h2,h3{line-height:1.02;letter-spacing:.012em}
 @media (max-width:1100px){.finder-body{grid-template-columns:minmax(0,1fr)}}
 .legend button>span:last-child{min-width:0}
 @media (max-width:760px){.legend button{grid-template-columns:26px 48px minmax(0,1fr);gap:10px}.lg-i{width:48px;height:32px}}
+
+/* Laufband: mehr Luft */
+.marquee.dark{padding-block:clamp(80px,9vw,140px);margin-top:clamp(56px,6vw,96px)}
+.marquee.dark li{width:clamp(220px,19vw,300px)}
+.marquee.dark li a{height:80px}
+.marquee.dark li img{max-height:46px;max-width:150px}
+.marquee.dark ul{animation-duration:80s}
+.mq-cta{padding-top:clamp(40px,4vw,56px)!important;padding-bottom:clamp(24px,3vw,40px)}
+@media (max-width:760px){.marquee.dark{padding-block:56px;margin-top:40px}.marquee.dark li{width:160px}.marquee.dark li img{max-height:32px;max-width:100px}}
