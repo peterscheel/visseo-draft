@@ -100,6 +100,11 @@
       if (on) show(Array.prototype.indexOf.call(spots, on));
     });
     show(2);
+    var fimg = img.querySelector("img");
+    if (fimg && !fimg.complete) fimg.addEventListener("load", function () {
+      var on = finder.querySelector(".spot.on");
+      show(on ? Array.prototype.indexOf.call(spots, on) : 2);
+    });
   }
 
   /* Formulare (Kontakt + Flächen-Alarm) → Cloudflare Pages Function /api/kontakt */

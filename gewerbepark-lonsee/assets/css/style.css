@@ -769,3 +769,65 @@ table.data th{font-size:15px}
 .legend b{font-size:16px}
 .legend small{font-size:13.5px}
 @media (max-width:760px){.finder>.pop{display:none!important}.legend button{padding:10px 8px}}
+
+/* Laufband: Logos zentriert in gleich großen Feldern, Button darunter */
+.marquee.dark{padding-block:clamp(48px,5vw,72px)}
+.marquee.dark ul{gap:0;align-items:center}
+.marquee.dark li{flex:none;width:clamp(170px,15vw,230px);display:flex;justify-content:center;align-items:center}
+.marquee.dark li a{display:flex;align-items:center;justify-content:center;width:100%;height:72px}
+.marquee.dark li img{max-height:50px;max-width:150px;width:auto;height:auto;object-fit:contain;margin:0 auto}
+.mq-cta{display:flex;justify-content:center;margin-top:0;padding-top:clamp(28px,3vw,40px)}
+@media (max-width:760px){.marquee.dark li{width:130px}.marquee.dark li a{height:52px}.marquee.dark li img{max-height:34px;max-width:100px}}
+
+/* ===== Mehr Luft in der Schrift ===== */
+h1,h2,h3{line-height:1.02;letter-spacing:.012em}
+.hx h1,.band-head h1,.band-head h2,.detail h1,.k-side h1,.textpage h1,.lage h1{line-height:1;letter-spacing:.012em}
+.closing .big,.pull{line-height:1;letter-spacing:.012em}
+.stats b,.figs b,.mini b,.tl .d{letter-spacing:.01em;line-height:1.05}
+.rows h3,.card h3,.post h2,.sec-head h2,.cta-strip h2,.finder-intro h2{letter-spacing:.012em;line-height:1.04}
+.wm-a{letter-spacing:.03em}
+
+/* ===== Kopfbereich präsenter ===== */
+.topbar{background:var(--ink);color:#D8CCBC;font-size:14px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:40px}
+.topbar a{color:#D8CCBC;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.topbar a:hover{color:#fff}
+.topbar b{color:#fff;font-weight:600;letter-spacing:.02em}
+.topbar .tb-r{display:flex;gap:26px;align-items:center}
+.topbar svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7}
+.site-header{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(61,51,41,.04)}
+.site-header.scrolled{box-shadow:0 10px 30px -18px rgba(61,51,41,.35)}
+.site-header .bar{height:92px}
+.nav>ul{gap:2px}
+.nav>ul>li>a{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:17px;color:var(--ink);padding:10px 16px;border-radius:0;background:none!important;position:relative}
+.nav>ul>li>a::after{content:"";position:absolute;left:16px;right:16px;bottom:2px;height:3px;background:var(--bronze);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav>ul>li>a:hover::after,.nav>ul>li>a[aria-current="page"]::after{transform:scaleX(1)}
+.nav .car{color:var(--bronze)}
+.site-header .cta{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:16px;border-radius:999px}
+.brand svg.lm{width:54px;height:54px}
+.wm-a{font-size:28px}
+.wm-b{font-size:11.5px}
+@media (max-width:980px){
+  .topbar .tb-l{display:none}
+  .topbar .wrap{justify-content:center}
+  .topbar .tb-r a:last-child{display:none}
+  .site-header .bar{height:72px}
+  .nav{top:112px}
+  .nav>ul>li>a{font-size:26px;padding:16px 0}
+  .nav>ul>li>a::after{display:none}
+  .brand svg.lm{width:42px;height:42px}
+  .wm-a{font-size:22px}
+}
+
+/* ===== Laufband: Logos mittig, Button darunter ===== */
+.mq-cta{margin-top:0!important;padding-top:clamp(28px,3vw,40px)}
+
+/* ===== Logos in der Finder-Liste ===== */
+.legend button{grid-template-columns:28px 56px minmax(0,1fr)}
+.legend .n{width:28px;height:28px}
+.lg-i{width:56px;height:36px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 6px}
+.lg-i img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.finder-body{grid-template-columns:minmax(0,1fr) 360px}
+@media (max-width:1100px){.finder-body{grid-template-columns:minmax(0,1fr)}}
+.legend button>span:last-child{min-width:0}
+@media (max-width:760px){.legend button{grid-template-columns:26px 48px minmax(0,1fr);gap:10px}.lg-i{width:48px;height:32px}}
