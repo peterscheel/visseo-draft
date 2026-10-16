@@ -1485,3 +1485,10 @@ a.tenant:hover,button.tenant:hover,a.tenant:focus-visible,button.tenant:focus-vi
 /* Lange Wörter in Mieter-Kacheln umbrechen statt abschneiden */
 .tenant .nm{min-width:0;max-width:100%}
 .tenant .nm b,.tenant .nm small{overflow-wrap:break-word;hyphens:manual}
+
+/* Finder-Liste Desktop: große Logos oben, Text darunter */
+@media (min-width:1241px){
+  .legend button,.legend li.extra a{grid-template-columns:26px minmax(0,1fr)!important;grid-template-rows:auto auto;align-items:center;row-gap:12px!important;column-gap:12px!important;padding:14px!important;min-height:150px!important;align-content:start}
+  .legend .lg-i{grid-column:2;width:100%!important;height:64px!important;padding:6px 10px;border-radius:4px}
+  .legend button>span:last-child,.legend li.extra a>span:last-child{grid-column:1/-1}
+}
