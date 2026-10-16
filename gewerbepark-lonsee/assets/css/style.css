@@ -1481,3 +1481,7 @@ a.tenant:hover,button.tenant:hover,a.tenant:focus-visible,button.tenant:focus-vi
 .f-mega:hover span{background-size:100% 100%}
 @media (max-width:640px){.f-mega{font-size:20vw}}
 .f-bottom a{transition:color .2s}.f-bottom a:hover{color:var(--orange)!important}
+
+/* Lange Wörter in Mieter-Kacheln umbrechen statt abschneiden */
+.tenant .nm{min-width:0;max-width:100%}
+.tenant .nm b,.tenant .nm small{overflow-wrap:break-word;hyphens:manual}
