@@ -1442,3 +1442,42 @@ html.anim .site-header .lm .w.g{animation:lmOnG .5s both;animation-delay:calc(.9
 .marquee.dark .track{padding-block:64px!important;margin-block:-50px!important}
 .marquee.dark li a{transition:transform .6s cubic-bezier(.2,.7,.1,1),filter .6s ease!important}
 .marquee.dark li a .glow{transition:opacity .6s ease!important}
+
+/* ===== Mieter-Seite: kein weißer Streifen, Karten wachsen beim Überfahren ===== */
+:root{--grey:#F1F2F3}
+.band-head:has(+ section[style*="--grey"]),.band-head:has(+ .tn-sec){margin-bottom:0!important}
+.tenant{transition:transform .35s cubic-bezier(.2,.7,.1,1),box-shadow .35s,border-color .25s!important}
+a.tenant:hover,button.tenant:hover,a.tenant:focus-visible,button.tenant:focus-visible{transform:scale(1.05)!important;border-color:var(--orange)!important;box-shadow:0 18px 40px -18px rgba(27,31,34,.35);z-index:2}
+
+/* ===== Footer ===== */
+.site-footer{position:relative;overflow:hidden;background:var(--ink)!important}
+.site-footer::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 85% 0%,rgba(184,197,32,.10),transparent 60%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/100% 48px;pointer-events:none}
+.site-footer .wrap{position:relative}
+.f-col a{position:relative;transition:color .2s,padding .3s cubic-bezier(.2,.7,.1,1)}
+.f-col a:hover{color:var(--orange)!important;padding-left:14px}
+.f-col a::before{content:"";position:absolute;left:0;top:50%;width:0;height:2px;background:var(--orange);transition:width .3s cubic-bezier(.2,.7,.1,1)}
+.f-col a:hover::before{width:8px}
+.f-card{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02))!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:4px!important;padding:28px 28px 26px!important;overflow:hidden;transition:border-color .4s,box-shadow .4s}
+.f-card::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--orange);transform-origin:0 50%;transform:scaleX(.18);transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.f-card:hover{border-color:rgba(184,197,32,.45)!important;box-shadow:0 0 0 1px rgba(184,197,32,.15),0 30px 60px -30px rgba(184,197,32,.35)}
+.f-card:hover::before{transform:scaleX(1)}
+.f-card .lbl{display:flex;align-items:center;gap:8px;color:#9AA1A8!important;font-size:12px!important;letter-spacing:.18em;text-transform:uppercase}
+.f-card .lbl::before{content:""!important;width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(184,197,32,.6);animation:ping 2s infinite}
+.f-name{font-size:18px!important;margin-top:12px!important;display:block;color:#fff}
+.f-tel{display:flex!important;align-items:center;gap:14px;margin-top:10px!important;font-size:clamp(28px,2.4vw,36px)!important}
+.f-tel .f-ic{width:44px;height:44px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .3s}
+.f-tel .f-ic svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.f-tel:hover .f-ic{transform:rotate(-12deg) scale(1.08)}
+.f-tel:hover span:last-child{color:var(--orange)}
+.f-adr{margin-top:14px!important;color:#9AA1A8!important;font-size:14.5px;line-height:1.6}
+.f-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px!important}
+.btn.f-call{background:var(--orange)!important;border-color:var(--orange)!important;color:var(--ink)!important}
+.btn.f-call:hover{background:#fff!important;border-color:#fff!important}
+.btn.f-form{background:transparent!important;border-color:rgba(255,255,255,.3)!important;color:#fff!important}
+.btn.f-form:hover{border-color:var(--orange)!important;color:var(--orange)!important}
+/* Riesige Wortmarke am Fuß */
+.f-mega{font-family:var(--cond);font-weight:700;text-transform:uppercase;line-height:.82;letter-spacing:-.02em;font-size:clamp(64px,20.4vw,296px);white-space:nowrap;margin:clamp(16px,2.4vw,36px) 0 0;color:transparent;-webkit-text-stroke:1px rgba(184,197,32,.35);user-select:none;overflow:hidden;text-align:center;letter-spacing:.02em}
+.f-mega span{background:linear-gradient(90deg,var(--orange),var(--orange)) 0 0/0 100% no-repeat;-webkit-background-clip:text;background-clip:text;transition:background-size 1.2s cubic-bezier(.2,.7,.1,1)}
+.f-mega:hover span{background-size:100% 100%}
+@media (max-width:640px){.f-mega{font-size:20vw}}
+.f-bottom a{transition:color .2s}.f-bottom a:hover{color:var(--orange)!important}
