@@ -959,3 +959,7 @@ h1,h2,h3{line-height:1.02;letter-spacing:.012em}
   .rows a p{grid-column:1;grid-row:2;font-size:16.5px}
   .rows a .ar{grid-column:2;grid-row:1 / span 2}
 }
+/* weniger Leerraum */
+.finder-wrap .finder{padding-top:clamp(8px,1.5vw,24px)}
+.mq-cta{padding-top:clamp(24px,2.5vw,32px)!important;padding-bottom:0}
+.mq-cta+.section{padding-top:clamp(36px,4vw,56px)}
