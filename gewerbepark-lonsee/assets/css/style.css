@@ -1306,7 +1306,7 @@ button.cl-art:focus-visible{outline:3px solid #fff;outline-offset:4px}
 @media (max-width:420px){.seg label{flex-direction:column;gap:4px;font-size:13px}}
 
 /* ===== Palette „Anthrazit & Kupfer“ – edlere Anmutung ===== */
-:root{--bg:#F3F5EA;--surface:#FFFFFF;--soft:#E8EBDD;--sage:#DFE3D5;--line:#D3D8CA;--ink:#1B1F22;--sub:#3F464E;--faint:#747D86;
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--soft:#F1F2F3;--sage:#E4E6E8;--line:#DADDE0;--ink:#1B1F22;--sub:#3F464E;--faint:#747D86;
   --orange:#B8C520;--bronze:#B8C520;--bronze-d:#727C10;--rust:#727C10;--brown:#1B1F22;--slate:#3F464E;--bronze-t:#ECF0CC}
 body{background:var(--bg)}
 .site-header{background:var(--bg)!important}
@@ -1316,9 +1316,9 @@ h1 em,h2 em,h3 em,.big em,.pull em,.f-line em{font-style:normal!important}
 .btn.sm{padding-top:12px;padding-bottom:12px}
 .site-header .cta{border-radius:2px!important}
 .card3,.cl-art,.f-card,.legend button,.legend li.extra a,.tenant,.stats>div,.facts3,.gmap,.tdlg,.g3-card,.g3-plan,.post,.k-form,.alarm{border-radius:4px!important}
-.c-steel,.c-sage{--tone:#DFE3D5}.c-sand{--tone:#ECF0CC}
-.trades li:nth-child(4n+2) a{background:#DFE3D5}
-.tenant .gp,.status,.status.s1,.status.s2{background:#DFE3D5}
+.c-steel,.c-sage{--tone:#E4E6E8}.c-sand{--tone:#ECF0CC}
+.trades li:nth-child(4n+2) a{background:#E4E6E8}
+.tenant .gp,.status,.status.s1,.status.s2{background:#E4E6E8}
 .closing2{background:var(--slate)}
 .closing2 .btn:hover{background:var(--orange);border-color:var(--orange)}
 .topbar,.topbar a{color:#C2C7CC}
@@ -1382,7 +1382,7 @@ html.anim .site-header .nav>ul>li:nth-child(2){animation-delay:.06s}html.anim .s
 .legend li.extra .n svg{width:14px;height:14px}
 
 /* ===== Palette „Graphit & Lime“ ===== */
-:root{--bg:#F3F5EA;--surface:#FFFFFF;--soft:#E8EBDD;--sage:#DFE3D5;--line:#D3D8CA;--ink:#1B1F22;--sub:#3F464E;--faint:#747D86;
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--soft:#F1F2F3;--sage:#E4E6E8;--line:#DADDE0;--ink:#1B1F22;--sub:#3F464E;--faint:#747D86;
   --orange:#B8C520;--bronze:#B8C520;--bronze-d:#727C10;--rust:#727C10;--brown:#1B1F22;--slate:#3F464E;--bronze-t:#ECF0CC;--acc-ink:#727C10;--grey:#747D86}
 /* Lime-Flächen tragen dunkle Schrift */
 .site-header .cta,.site-header .cta:hover{color:var(--ink)!important}
