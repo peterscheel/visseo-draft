@@ -1067,3 +1067,7 @@ h1,h2,h3,.pull,.big,.f-line,.rows h3,.card3 h3{letter-spacing:-.01em!important;l
   .stats b{font-size:30px}
   .textpage h1{font-size:30px}
 }
+/* Laufband: Logo beim Darüberfahren vergrößern */
+.marquee.dark li img{transition:transform .3s cubic-bezier(.2,.7,.1,1),opacity .3s}
+.marquee.dark li a:hover img,.marquee.dark li a:focus-visible img{transform:scale(1.35);opacity:1}
+.marquee.dark .track{padding-block:14px}
