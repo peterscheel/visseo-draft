@@ -1306,13 +1306,11 @@ button.cl-art:focus-visible{outline:3px solid #fff;outline-offset:4px}
 @media (max-width:420px){.seg label{flex-direction:column;gap:4px;font-size:13px}}
 
 /* ===== Palette „Anthrazit & Kupfer“ – edlere Anmutung ===== */
-@font-face{font-family:"Lora";src:url("../fonts/lora-italic-500.woff") format("woff");font-style:italic;font-weight:500;font-display:swap}
 :root{--bg:#F5F3F0;--surface:#FFFFFF;--soft:#ECE8E3;--sage:#E3DED7;--line:#DAD4CC;--ink:#1E2124;--sub:#585B5F;--faint:#8D8983;
-  --orange:#B06A44;--bronze:#B06A44;--bronze-d:#7D4529;--rust:#7D4529;--brown:#1C1E21;--slate:#2C3035;--bronze-t:#F1E1D6;
-  --serif:"Lora",Georgia,"Times New Roman",serif}
+  --orange:#B06A44;--bronze:#B06A44;--bronze-d:#7D4529;--rust:#7D4529;--brown:#1C1E21;--slate:#2C3035;--bronze-t:#F1E1D6}
 body{background:var(--bg)}
 .site-header{background:var(--bg)!important}
-h1 em,h2 em,h3 em,.big em,.pull em,.f-line em{font-family:var(--serif)!important;font-style:italic!important;font-weight:500!important;text-transform:none!important;letter-spacing:0!important}
+h1 em,h2 em,h3 em,.big em,.pull em,.f-line em{font-style:normal!important}
 .kicker{letter-spacing:.22em!important}
 .btn{border-radius:2px!important;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px!important;font-weight:600;padding-top:15px;padding-bottom:15px}
 .btn.sm{padding-top:12px;padding-bottom:12px}
