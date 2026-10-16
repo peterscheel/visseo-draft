@@ -242,6 +242,11 @@
     });
     dlg.querySelector(".tdlg-x").addEventListener("click", function () { dlg.close(); });
     dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+    var hmap = { "#kontakt-rts": "c-rts", "#kontakt-ee": "c-ee" };
+    if (hmap[location.hash]) {
+      var tb = document.querySelector('[data-contact="' + hmap[location.hash] + '"]');
+      if (tb) { tb.scrollIntoView({ block: "center" }); tb.click(); }
+    }
   }
 
   /* Jahr im Footer */

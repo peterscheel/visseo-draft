@@ -1201,3 +1201,32 @@ button.tenant:hover{border-color:var(--orange);transform:translateY(-2px)}
 .tdlg-x{position:absolute;right:14px;top:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:22px;line-height:1;cursor:pointer}
 .tdlg-x:hover{border-color:var(--ink)}
 .tdlg-head{padding-right:52px;align-items:center}
+
+/* GP3-Plan: Fläche füllen */
+.g3-plan{justify-content:space-between}
+.g3-plan>picture:first-child{flex:1;display:flex;align-items:center}
+.g3-two{flex:1;align-items:center}
+.g3-cap{margin-top:0}
+
+/* Finder-Liste: 10 Einträge, 5 Spalten */
+.legend{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+.legend li.extra a{display:grid;grid-template-columns:28px 56px minmax(0,1fr);gap:12px;align-items:center;padding:10px 12px;border:1px dashed var(--line);border-radius:12px;background:#fff;text-decoration:none;color:inherit;transition:border-color .2s,background .2s}
+.legend li.extra a:hover{border-color:var(--orange);background:#FFF5F0}
+.legend li.extra .n{background:var(--soft);color:var(--slate);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.legend li.extra .n svg{width:15px;height:15px}
+.legend li.extra b{display:block;font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.legend li.extra small{display:block;font-size:13.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.legend li.extra>a>span:last-child{min-width:0}
+@media (max-width:1240px){.legend{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:600px){.legend{grid-template-columns:1fr!important}}
+
+/* WhatsApp-Leiste in Hausfarben */
+.wa-row{background:var(--slate);border-color:var(--slate);color:#fff}
+.wa-row b{color:#fff}
+.wa-row .t div{color:#D3D6DA}
+.legend button,.legend li.extra a{grid-template-columns:26px 46px minmax(0,1fr)!important;gap:10px!important;padding:10px!important}
+.lg-i{width:46px;height:32px}
+.legend b,.legend li.extra b{white-space:normal!important;font-size:15px!important;line-height:1.2}
+.legend small,.legend li.extra small{white-space:normal!important;font-size:12.5px!important;line-height:1.3;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.legend .n{width:26px!important;height:26px!important}
+.g3-plan{padding:clamp(16px,2vw,28px)}
