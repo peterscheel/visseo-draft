@@ -228,6 +228,22 @@
   var hd = document.querySelector(".site-header");
   if (hd) { var onS = function () { hd.classList.toggle("scrolled", window.scrollY > 8); }; window.addEventListener("scroll", onS, { passive: true }); onS(); }
 
+
+  /* Mieter ohne Website: Kontakt-Dialog */
+  var dlg = document.getElementById("tenant-dlg");
+  if (dlg) {
+    var inner = dlg.querySelector(".tdlg-in");
+    document.querySelectorAll("[data-contact]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var t = document.getElementById(b.getAttribute("data-contact"));
+        inner.innerHTML = ""; inner.appendChild(t.content.cloneNode(true));
+        if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+      });
+    });
+    dlg.querySelector(".tdlg-x").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  }
+
   /* Jahr im Footer */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
