@@ -392,9 +392,10 @@
   document.querySelectorAll(".marquee li a img").forEach(function (img) {
     var w = document.createElement("span"); w.className = "lgw";
     img.parentNode.insertBefore(w, img); w.appendChild(img);
+    var gw = document.createElement("span"); gw.className = "glw";
     var g = document.createElement("span"); g.className = "glow";
-    g.style.setProperty("--m", "url('" + img.src + "')");
-    w.appendChild(g);
+    g.style.setProperty("--m", "url('" + img.src.replace("/logos/hell/", "/logos/glow/") + "')");
+    gw.appendChild(g); w.appendChild(gw);
   });
 
   /* Jahr im Footer */
