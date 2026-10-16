@@ -330,7 +330,7 @@
     });
 
     /* Blöcke weich einblenden, Gruppen gestaffelt */
-    var sel = [".kicker", ".sub", ".hx-lead", ".btn-row", ".g3-badge", ".hx-art", ".cl-art", ".stats > div", ".card3", ".legend li", ".tenant", ".g3-grid > *", ".rows > a", ".post", ".route li", ".f-card", ".k-form", ".k-side > *", ".alarm", ".wa-row", ".tl li", ".gmap-tabs", ".detail .txt > *", ".figs > div", ".chips", ".band-head h1 + *"];
+    var sel = [".kicker", ".sub", ".hx-lead", ".btn-row", ".g3-badge", ".hx-art", ".cl-art", ".stats > div", ".card3", ".legend li", ".tenant", ".g3-grid > *", ".rows > a", ".post", ".route li", ".f-card", ".k-form", ".k-side > *", ".alarm", ".wa-row", ".tl li", ".gmap-tabs", ".sn-fig", ".sn-facts li", ".detail .txt > *", ".figs > div", ".chips", ".band-head h1 + *"];
     main.querySelectorAll(sel.join(",")).forEach(function (el) {
       if (el.closest(".pop, .tdlg, .split, .rv")) return;
       var sib = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
@@ -356,7 +356,7 @@
         if (p < 1) requestAnimationFrame(step);
       })(performance.now());
     }
-    main.querySelectorAll(".stats b, .g3-facts b, .figs b").forEach(function (b) {
+    main.querySelectorAll(".stats b, .g3-facts b, .figs b, .sn-facts b").forEach(function (b) {
       if (!/^[\d.]+/.test(b.textContent.trim())) return;
       b.setAttribute("data-count", b.textContent.trim()); io.observe(b);
     });
