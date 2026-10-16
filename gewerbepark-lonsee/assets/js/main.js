@@ -287,6 +287,107 @@
     });
   }
 
+  /* ===== Bewegung: Einblenden beim Scrollen, Wort-Animation, Zähler, Bilder ===== */
+  var root = document.documentElement;
+  if (root.classList.contains("anim") && "IntersectionObserver" in window) {
+    var main = document.querySelector("main") || document.body;
+    var done = function (el) {
+      el.addEventListener("transitionend", function te(e) {
+        if (e.target !== el) return;
+        el.classList.remove("rv", "in"); el.style.removeProperty("--d");
+        el.removeEventListener("transitionend", te);
+      });
+    };
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target; io.unobserve(el);
+        el.classList.add("in");
+        if (el.classList.contains("rv")) done(el);
+        if (el.hasAttribute("data-count")) count(el);
+      });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
+
+    /* Überschriften Wort für Wort */
+    main.querySelectorAll("h1, h2").forEach(function (h) {
+      if (h.closest(".pop, .tdlg, template, .marquee")) return;
+      var k = 0;
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var parts = n.textContent.split(/(\s+)/), frag = document.createDocumentFragment();
+            parts.forEach(function (t) {
+              if (!t) return;
+              if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(" ")); return; }
+              var o = document.createElement("span"), i = document.createElement("span");
+              o.className = "sw"; i.textContent = t; i.style.setProperty("--k", k++); o.appendChild(i); frag.appendChild(o);
+            });
+            n.parentNode.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && n.tagName !== "BR" && n.tagName !== "svg") walk(n);
+        });
+      })(h);
+      h.classList.add("split"); io.observe(h);
+    });
+
+    /* Blöcke weich einblenden, Gruppen gestaffelt */
+    var sel = [".kicker", ".sub", ".hx-lead", ".btn-row", ".g3-badge", ".hx-art", ".cl-art", ".stats > div", ".card3", ".legend li", ".tenant", ".g3-grid > *", ".rows > a", ".post", ".route li", ".f-card", ".k-form", ".k-side > *", ".alarm", ".wa-row", ".tl li", ".gmap-tabs", ".detail .txt > *", ".figs > div", ".chips", ".band-head h1 + *"];
+    main.querySelectorAll(sel.join(",")).forEach(function (el) {
+      if (el.closest(".pop, .tdlg, .split, .rv")) return;
+      var sib = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
+      el.style.setProperty("--d", (Math.min(sib, 7) * 0.07) + "s");
+      el.classList.add("rv"); io.observe(el);
+    });
+
+    /* Fotos: Vorhang auf */
+    main.querySelectorAll(".hx-img, .finder-img, .detail .media, .gmap").forEach(function (el) {
+      el.classList.add("rv-img"); io.observe(el);
+    });
+
+    /* Zahlen hochzählen */
+    function count(el) {
+      var raw = el.getAttribute("data-count"), m = raw.match(/^([\d.]+)(.*)$/);
+      if (!m) return;
+      var target = parseInt(m[1].replace(/\./g, ""), 10), rest = m[2], t0 = null, dur = 1600;
+      var fmt = function (v) { return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); };
+      (function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+        el.textContent = fmt(Math.round(target * e)) + rest;
+        if (p < 1) requestAnimationFrame(step);
+      })(performance.now());
+    }
+    main.querySelectorAll(".stats b, .g3-facts b, .figs b").forEach(function (b) {
+      if (!/^[\d.]+/.test(b.textContent.trim())) return;
+      b.setAttribute("data-count", b.textContent.trim()); io.observe(b);
+    });
+
+    /* Foto oben: leichte Parallaxe */
+    var par = document.querySelector(".hx-img img");
+    if (par) {
+      var tick = false;
+      var upd = function () {
+        var r = par.parentNode.getBoundingClientRect(), vh = innerHeight;
+        if (r.bottom > 0 && r.top < vh) par.style.transform = "translateY(" + ((r.top + r.height / 2 - vh / 2) * -0.08).toFixed(1) + "px) scale(1.12)";
+        tick = false;
+      };
+      addEventListener("scroll", function () { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true }); upd();
+    }
+
+    /* Standortkarten: leichte 3D-Neigung */
+    if (matchMedia("(hover: hover)").matches) document.querySelectorAll(".card3").forEach(function (c) {
+      c.addEventListener("mousemove", function (e) {
+        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        c.style.transform = "perspective(900px) rotateX(" + (-y * 5).toFixed(2) + "deg) rotateY(" + (x * 6).toFixed(2) + "deg) translateY(-6px)";
+      });
+      c.addEventListener("mouseleave", function () { c.style.transform = ""; });
+    });
+
+    /* Fortschrittsleiste oben */
+    var bar = document.createElement("div"); bar.className = "progress"; document.body.appendChild(bar);
+    var pu = function () { var h = document.documentElement.scrollHeight - innerHeight; bar.style.transform = "scaleX(" + (h > 0 ? scrollY / h : 0) + ")"; };
+    addEventListener("scroll", pu, { passive: true }); pu();
+  }
+
   /* Jahr im Footer */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
