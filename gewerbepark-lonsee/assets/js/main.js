@@ -83,8 +83,8 @@
       var left = Math.min(Math.max(8, x - 24), w - pw - 8);
       var top = y + 30;
       if (top + ph > h - 8) top = y - ph - 30;
-      pop.style.left = left + "px";
-      pop.style.top = Math.max(8, top) + "px";
+      pop.style.left = (img.offsetLeft + left) + "px";
+      pop.style.top = (img.offsetTop + Math.max(8, top)) + "px";
     }
     spots.forEach(function (s, i) {
       s.addEventListener("mouseenter", function () { show(i); });
@@ -193,7 +193,7 @@
         if (latest && items[0]) {
           var d0 = parseDate(items[0].datum);
           latest.href = "aktuelles.html#n-" + items[0].datum;
-          latest.querySelector(".date").innerHTML = d0 ? MON_K[d0.getMonth()] + "<br>" + d0.getFullYear() : "NEU";
+          latest.querySelector(".date").innerHTML = d0 ? MON_K[d0.getMonth()] + "<br> " + d0.getFullYear() : "NEU";
           latest.querySelector("b").textContent = items[0].titel;
         }
         if (!list) return;
@@ -206,7 +206,7 @@
           var paras = String(n.text || "").split(/\n\s*\n/).map(function (p) { return "<p>" + esc(p).replace(/\n/g, "<br>") + "</p>"; }).join("");
           return '<article class="post' + (img ? "" : " noimg") + (isNew ? " new" : "") + '" id="n-' + esc(n.datum) + '">' + img +
             '<div class="pbody"><div class="meta"><time datetime="' + esc(n.datum) + '">' + fmt(d) + "</time>" +
-            (n.standort ? '<span class="status">' + esc(n.standort) + "</span>" : "") + "</div>" +
+            (n.standort ? '<span class="status' + (/1/.test(n.standort) ? " s1" : /2/.test(n.standort) ? " s2" : /3/.test(n.standort) ? " s3" : "") + '">' + esc(n.standort) + "</span>" : "") + "</div>" +
             "<h2>" + esc(n.titel) + '</h2><div class="ptext">' + paras + "</div>" +
             (n.link ? '<a class="link" href="' + esc(n.link) + '">' + esc(n.linktext || "Mehr erfahren") + " →</a>" : "") +
             "</div></article>";
@@ -218,6 +218,10 @@
       })
       .catch(function () { if (list) list.innerHTML = '<p class="sub">Die Nachrichten konnten nicht geladen werden.</p>'; });
   }
+
+  /* Kopfzeile: Linie beim Scrollen */
+  var hd = document.querySelector(".site-header");
+  if (hd) { var onS = function () { hd.classList.toggle("scrolled", window.scrollY > 8); }; window.addEventListener("scroll", onS, { passive: true }); onS(); }
 
   /* Jahr im Footer */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
