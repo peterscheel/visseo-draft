@@ -80,11 +80,11 @@
       var w = img.clientWidth, h = img.clientHeight;
       var x = s.offsetLeft, y = s.offsetTop;
       var pw = pop.offsetWidth, ph = pop.offsetHeight;
-      var left = Math.min(Math.max(8, x - 24), w - pw - 8);
-      var top = y + 30;
-      if (top + ph > h - 8) top = y - ph - 30;
+      var left = x + 30 + pw <= w - 8 ? x + 30 : x - 30 - pw;
+      left = Math.min(Math.max(8, left), w - pw - 8);
+      var top = Math.min(Math.max(8, y - ph / 2), h - ph - 8);
       pop.style.left = (img.offsetLeft + left) + "px";
-      pop.style.top = (img.offsetTop + Math.max(8, top)) + "px";
+      pop.style.top = (img.offsetTop + top) + "px";
     }
     spots.forEach(function (s, i) {
       s.addEventListener("mouseenter", function () { show(i); });
