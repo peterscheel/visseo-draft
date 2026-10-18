@@ -1647,3 +1647,19 @@ h1,h2{letter-spacing:-.015em!important}
 .finder .finder-img{width:100vw!important;max-width:100vw!important;margin-left:calc(50% - 50vw)!important;border-radius:0!important;box-shadow:none!important}
 .finder .finder-img img{width:100%;height:auto;display:block}
 html,body{overflow-x:clip}
+
+/* Kontaktbereich: neue Illustration (Logo-Gebäude + B10) */
+.cl-lm{display:block;width:100%;max-width:380px;height:auto;margin:6px auto 4px;overflow:visible;color:var(--ink)}
+.cl-lm .lf{fill:currentColor}
+.cl-lm .ls{fill:currentColor;opacity:.55}
+.cl-lm .wl path{fill:var(--orange);opacity:0;transition:opacity .4s ease;transition-delay:calc(var(--i) * 90ms)}
+.cl-lm .sw{fill:none;stroke:var(--orange);stroke-width:7;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0}
+html.anim .cl-art:not(.play) .cl-lm .lf,html.anim .cl-art:not(.play) .cl-lm .ls{opacity:0;transform:translateY(14px)}
+html.anim .cl-art:not(.play) .cl-lm .sw{stroke-dashoffset:100}
+html.anim .cl-art.play .cl-lm .lf{animation:lmRise .8s cubic-bezier(.2,.7,.1,1) both}
+html.anim .cl-art.play .cl-lm .ls{animation:lmRiseS .8s .15s cubic-bezier(.2,.7,.1,1) both}
+html.anim .cl-art.play .cl-lm .sw{animation:lmSweep 1.1s .55s cubic-bezier(.65,0,.2,1) both}
+html.anim .cl-art.play .cl-lm .wl path{animation:clLight 2.6s ease-in-out infinite;animation-delay:calc(1.8s + var(--i) * .35s)}
+@keyframes lmRiseS{from{opacity:0;transform:translateY(14px)}to{opacity:.55;transform:none}}
+@keyframes clLight{0%,100%{opacity:0}40%,60%{opacity:1}}
+button.cl-art:hover .cl-lm .wl path{opacity:1;animation:none}
