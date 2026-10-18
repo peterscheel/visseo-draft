@@ -1537,3 +1537,22 @@ a.tenant:hover,button.tenant:hover,a.tenant:focus-visible,button.tenant:focus-vi
   .m-tel .m-ic svg{width:19px;height:19px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
   .nav::after{content:"LONSEE";display:block;margin-top:auto;padding-top:28px;font-family:var(--cond);font-weight:700;font-size:min(20.5vw,180px);line-height:1;letter-spacing:.01em;color:transparent;-webkit-text-stroke:1px rgba(184,197,32,.35);text-align:center;pointer-events:none;overflow:hidden}
 }
+
+/* Mobile: Farbverläufe */
+@media (max-width:980px){
+  .site-header{background:linear-gradient(115deg,#1B1F22 0%,#2A3036 55%,#3F464E 100%)!important;position:sticky}
+  .site-header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,transparent,#B8C520 30%,#D9E36B 50%,#B8C520 70%,transparent);opacity:.9;pointer-events:none}
+  .burger{background:linear-gradient(135deg,#D9E36B,#B8C520 55%,#97A21A)!important;box-shadow:0 6px 18px -6px rgba(184,197,32,.6)}
+  .m-call{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,0))}
+  .nav{background:
+      radial-gradient(120% 60% at 100% 0%,rgba(184,197,32,.22),transparent 55%),
+      radial-gradient(90% 50% at 0% 100%,rgba(116,125,134,.35),transparent 60%),
+      linear-gradient(180deg,#1B1F22 0%,#262B30 50%,#3F464E 100%)!important}
+  .nav>ul>li>a[aria-current="page"],.nav>ul>li>a:active{background:linear-gradient(90deg,#B8C520,#E4EC8A)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+  .nav .mobile-cta{background:linear-gradient(135deg,#D9E36B,#B8C520 55%,#97A21A)!important;border:0!important}
+  .m-tel{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02))}
+  .m-tel .m-ic{background:linear-gradient(135deg,#D9E36B,#B8C520 60%,#97A21A)}
+  .drop a img{box-shadow:0 10px 24px -12px rgba(0,0,0,.6)}
+  .nav::after{-webkit-text-stroke:1px rgba(217,227,107,.45)!important;flex-shrink:0}
+  .nav>ul,.nav .mobile-cta,.m-tel{flex-shrink:0}
+}
