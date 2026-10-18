@@ -1642,3 +1642,8 @@ h1,h2{letter-spacing:-.015em!important}
 .h2-facts{right:max(var(--gut-r),calc((100vw - var(--wrap)) / 2 + var(--gut-r)))!important;bottom:clamp(48px,7vw,104px)!important}
 .hero2+.marquee{margin-top:0!important}
 @media (max-width:980px){.h2-media{min-height:calc(100svh - 68px)!important}.h2-content{padding-bottom:36px!important}}
+
+/* Mieter-Finder: Foto randlos über die ganze Breite */
+.finder .finder-img{width:100vw!important;max-width:100vw!important;margin-left:calc(50% - 50vw)!important;border-radius:0!important;box-shadow:none!important}
+.finder .finder-img img{width:100%;height:auto;display:block}
+html,body{overflow-x:clip}
