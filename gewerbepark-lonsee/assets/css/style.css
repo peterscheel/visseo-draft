@@ -1665,5 +1665,5 @@ html.anim .cl-art.play .cl-lm .wl path{animation:clLight 2.6s ease-in-out infini
 button.cl-art:hover .cl-lm .wl path{opacity:1;animation:none}
 
 /* GP3-Karte: Modell statt Bauplan */
-.card3 .img img.modell{object-fit:contain;padding:28px 14px 10px;background:#FBFAF7}
+.card3 .img img.modell{object-fit:contain;padding:28px 10px 10px;background:#fff}
 .card3 .viz{position:absolute;right:14px;bottom:12px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);background:rgba(255,255,255,.85);padding:5px 9px;border-radius:999px}
