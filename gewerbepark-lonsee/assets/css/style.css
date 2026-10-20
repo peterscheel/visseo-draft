@@ -1799,3 +1799,5 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 .wm2 .w1 em,.site-header .wm2 .w1 em,.site-footer .wm2 .w1 em{color:#B8C520!important}
 /* Umlaute (Ä Ö Ü) in animierten Überschriften nicht abschneiden */
 html.anim .split .sw{padding-top:.2em;margin-top:-.2em}
+/* Footer: Schriftzug entfernt */
+.site-footer .f-brand>.brand{display:none!important}
