@@ -1725,3 +1725,10 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 }
 .f-line em{font-weight:800!important;font-family:var(--cond)!important}
 @media (max-width:640px){.site-footer .f-brand .brand{display:none}}
+
+/* Desktop: LONSEE als ruhige Fläche statt Kontur (keine Überschneidungslinien) */
+@media (min-width:641px){
+  .f-mega{-webkit-text-stroke:0!important;color:rgba(184,197,32,.09)!important;transition:color .6s ease}
+  .f-mega span{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:inherit!important;-webkit-text-stroke:0!important}
+  .f-mega:hover{color:rgba(184,197,32,.85)!important}
+}
