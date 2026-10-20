@@ -1767,8 +1767,8 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 }
 @media (max-width:380px){.site-header .wm2 .w1{font-size:16px}.site-header .brand .mk img{height:32px}}
 /* alte Logo-Bildflächen (mobiles Menü, Footer mobil) auf neue Marke */
-@media (max-width:980px){.nav::after{background-image:url("../img/marke.png")!important;height:90px!important}}
-@media (max-width:640px){.f-mega{background-image:url("../img/marke.png")!important}}
+@media (max-width:980px){.nav::after{background-image:url("../img/marke.png?v=202610201709")!important;height:90px!important}}
+@media (max-width:640px){.f-mega{background-image:url("../img/marke.png?v=202610201709")!important}}
 
 /* Marke: auf Weiß ohne Plakette, auf Dunkel mit schwarzer Plakette */
 .brand .mk-d{display:none}
@@ -1788,10 +1788,12 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 .site-footer .brand .mk{display:none!important}
 @media (max-width:640px){.f-mega{display:none!important}}
 /* Mobil: freigestelltes Gebäude statt schwarzer Plakette */
-@media (max-width:980px){.site-header .brand .mk-d img{height:40px;border-radius:0}.nav::after{background-image:url("../img/marke-frei.png")!important;height:80px!important}}
+@media (max-width:980px){.site-header .brand .mk-d img{height:40px;border-radius:0}.nav::after{background-image:url("../img/marke-frei.png?v=202610201709")!important;height:80px!important}}
 @media (max-width:380px){.site-header .brand .mk-d img{height:34px}}
 @media (max-width:980px){.site-header .bar>*:not(.brand){flex-shrink:0}.site-header .brand{min-width:0;flex-shrink:1}.site-header .m-call{aspect-ratio:1}}
 @media (max-width:420px){.site-header .brand .mk-d img{height:34px}.site-header .wm2 .w1{font-size:16px}.site-header .wm2 .w2{font-size:8.5px}.site-header .brand{gap:9px!important}}
 @media (max-width:360px){.site-header .brand .mk-d img{height:28px}.site-header .wm2 .w1{font-size:14px}}
 @media (max-width:980px){.site-header .brand{flex-shrink:0}}
 @media (max-width:360px){.site-header .brand .mk-d img{height:24px}.site-header .wm2 .w1{font-size:13px}.site-header .wm2 .w2{font-size:7.5px;letter-spacing:.5em;margin-right:-.5em}.site-header .brand{gap:7px!important}}
+/* Einheitliches Grün im Logo */
+.wm2 .w1 em,.site-header .wm2 .w1 em,.site-footer .wm2 .w1 em{color:#B8C520!important}
