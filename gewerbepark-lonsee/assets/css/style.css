@@ -1801,3 +1801,14 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 html.anim .split .sw{padding-top:.2em;margin-top:-.2em}
 /* Footer: Schriftzug entfernt */
 .site-footer .f-brand>.brand{display:none!important}
+/* Kontaktbereich: Original-Logo auf dessen weißem Hintergrund */
+.closing2{background:#FEFEFE!important;color:var(--ink)!important;border-top:1px solid var(--line)}
+.closing2 .kicker{color:#747D86!important}
+.closing2 .big{color:var(--ink)!important}
+.closing2 .big em,.closing2 em{color:#727C10!important}
+.closing2 .cl-p{color:#3F464E!important}
+.closing2 .btn{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important}
+.closing2 .btn:hover{background:var(--orange)!important;border-color:var(--orange)!important;color:var(--ink)!important}
+.closing2 .btn.ghost{background:transparent!important;color:var(--ink)!important;border-color:rgba(27,31,34,.3)!important}
+.closing2 .btn.ghost:hover{border-color:var(--ink)!important}
+.closing2 .cl-art{max-width:560px}
