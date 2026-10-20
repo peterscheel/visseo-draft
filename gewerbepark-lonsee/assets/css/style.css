@@ -1714,3 +1714,14 @@ h1,h2{line-height:1.04!important}
 html.anim .cl-art:not(.play) .cl-bld img{opacity:0;transform:translateY(18px) scale(.98)}
 html.anim .cl-art .cl-bld img{transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.7,.1,1)}
 button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
+
+/* Mobil: Logo statt großem LONSEE-Schriftzug (Menü und Footer) */
+@media (max-width:980px){
+  .nav::after{content:""!important;display:block;margin-top:auto;padding-top:28px;height:110px;-webkit-text-stroke:0!important;background:url("../img/logo-dunkel-2.png") center bottom/contain no-repeat!important;opacity:.95}
+}
+@media (max-width:640px){
+  .f-mega{font-size:0!important;line-height:0!important;height:clamp(52px,16vw,80px);margin:22px 0 14px!important;background:url("../img/logo-dunkel-2.png") center/contain no-repeat}
+  .f-mega span{display:none!important}
+}
+.f-line em{font-weight:800!important;font-family:var(--cond)!important}
+@media (max-width:640px){.site-footer .f-brand .brand{display:none}}
