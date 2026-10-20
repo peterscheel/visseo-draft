@@ -1775,3 +1775,7 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 .brand .mk-l img{height:50px!important;border-radius:0!important}
 .site-footer .brand .mk-l{display:none}.site-footer .brand .mk-d{display:block}
 @media (max-width:980px){.site-header .brand .mk-l{display:none}.site-header .brand .mk-d{display:block}}
+/* Schriftzug: ohne Trennstrich, LONSEE rechtsbündig */
+.wm2{border-left:0!important;padding-left:0!important}
+.wm2 .w2{justify-content:flex-end;margin-right:-.62em}
+.wm2 .w2::before,.wm2 .w2::after{display:none}
