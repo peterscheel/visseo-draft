@@ -1667,3 +1667,21 @@ button.cl-art:hover .cl-lm .wl path{opacity:1;animation:none}
 /* GP3-Karte: Modell statt Bauplan */
 .card3 .img img.modell{object-fit:contain;padding:28px 10px 10px;background:#fff}
 .card3 .viz{position:absolute;right:14px;bottom:12px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);background:rgba(255,255,255,.85);padding:5px 9px;border-radius:999px}
+
+/* ===== Neues Logo (Bild) ===== */
+.brand{gap:0!important}
+.brand picture{display:block;line-height:0}
+.brand img{display:block;height:auto}
+.site-header .brand img{width:clamp(270px,24vw,360px)}
+.site-header .lg-d{display:none}
+.site-footer .lg-l{display:none}
+.site-footer .brand img{width:340px;max-width:100%}
+.brand{transition:opacity .25s}
+.brand:hover{opacity:.85}
+html.anim .site-header .brand{animation:hdrIn .9s cubic-bezier(.2,.7,.1,1) both}
+@media (max-width:980px){
+  .site-header .lg-l{display:none}
+  .site-header .lg-d{display:block}
+  .site-header .brand img{width:min(230px,56vw)}
+}
+@media (max-width:380px){.site-header .brand img{width:200px}}
