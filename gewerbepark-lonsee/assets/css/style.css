@@ -1707,3 +1707,10 @@ h1,h2{line-height:1.04!important}
 .legend b,.tenant .nm b{font-weight:700!important}
 @media (max-width:980px){.nav>ul>li>a{font-size:30px!important;letter-spacing:0!important;font-weight:800!important}}
 @media (max-width:640px){.h2-content h1{font-size:clamp(24px,7vw,34px)!important}}
+
+/* Kontaktbereich: Gebäude aus dem neuen Logo */
+.cl-bld{display:block;padding:clamp(18px,3vw,36px) clamp(10px,2vw,24px) clamp(8px,1.5vw,16px)}
+.cl-bld img{display:block;width:100%;height:auto}
+html.anim .cl-art:not(.play) .cl-bld img{opacity:0;transform:translateY(18px) scale(.98)}
+html.anim .cl-art .cl-bld img{transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.7,.1,1)}
+button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
