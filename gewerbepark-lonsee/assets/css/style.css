@@ -1736,3 +1736,9 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 /* Mieter ohne Website: nicht klickbar */
 .tenant.nolink{cursor:default}
 .tenant.nolink:hover{transform:none!important;box-shadow:none!important;border-color:var(--line)!important}
+
+/* Startseite: Mieter-Logos statt Finder */
+.home-tenants{background:var(--grey,#F1F2F3)}
+.home-tenants .tenants{margin-top:clamp(20px,2.4vw,32px)}
+@media (min-width:1181px){.tenants{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+@media (max-width:1180px) and (min-width:701px){.tenants{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
