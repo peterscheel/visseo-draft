@@ -1742,3 +1742,30 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 .home-tenants .tenants{margin-top:clamp(20px,2.4vw,32px)}
 @media (min-width:1181px){.tenants{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
 @media (max-width:1180px) and (min-width:701px){.tenants{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+
+/* ===== Neue Marke: Gebäude-Badge + Wortmarke als echter Text ===== */
+.brand{display:flex!important;align-items:center;gap:14px!important;text-decoration:none}
+.brand .mk{display:block;line-height:0;flex:none}
+.brand .mk img{display:block;height:44px;width:auto;border-radius:6px}
+.wm2{display:flex;flex-direction:column;line-height:1;padding-left:14px;border-left:1.5px solid currentColor}
+.wm2 .w1{font-family:"Montserrat",Arial,sans-serif;font-weight:800;font-size:22px;letter-spacing:.01em;color:var(--ink)}
+.wm2 .w1 em{font-style:normal;color:var(--acc-ink,#727C10)}
+.wm2 .w2{display:flex;align-items:center;gap:8px;margin-top:6px;font-family:"Montserrat",Arial,sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.62em;color:var(--sub)}
+.wm2 .w2::before,.wm2 .w2::after{content:"";flex:1;height:1px;background:currentColor;opacity:.5}
+.wm2 .w2::after{margin-left:-.62em}
+.site-header .brand{color:var(--line)}
+.site-footer .brand{color:rgba(255,255,255,.25)}
+.site-footer .wm2 .w1{color:#fff}.site-footer .wm2 .w1 em{color:var(--orange)}
+.site-footer .wm2 .w2{color:#B4BAC0}
+.brand:hover .mk img{filter:brightness(1.12)}
+@media (max-width:980px){
+  .site-header .brand{color:rgba(255,255,255,.25)}
+  .site-header .wm2 .w1{color:#fff;font-size:18px}.site-header .wm2 .w1 em{color:var(--orange)}
+  .site-header .wm2 .w2{color:#B4BAC0;font-size:9px;margin-top:5px}
+  .site-header .brand .mk img{height:38px}
+  .wm2{padding-left:11px}.brand{gap:11px!important}
+}
+@media (max-width:380px){.site-header .wm2 .w1{font-size:16px}.site-header .brand .mk img{height:32px}}
+/* alte Logo-Bildflächen (mobiles Menü, Footer mobil) auf neue Marke */
+@media (max-width:980px){.nav::after{background-image:url("../img/marke.png")!important;height:90px!important}}
+@media (max-width:640px){.f-mega{background-image:url("../img/marke.png")!important}}
