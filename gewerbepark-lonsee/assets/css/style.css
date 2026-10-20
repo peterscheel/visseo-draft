@@ -1732,3 +1732,7 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
   .f-mega span{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:inherit!important;-webkit-text-stroke:0!important}
   .f-mega:hover{color:rgba(184,197,32,.85)!important}
 }
+
+/* Mieter ohne Website: nicht klickbar */
+.tenant.nolink{cursor:default}
+.tenant.nolink:hover{transform:none!important;box-shadow:none!important;border-color:var(--line)!important}

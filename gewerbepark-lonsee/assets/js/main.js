@@ -52,7 +52,7 @@
       var f = chip.getAttribute("data-filter");
       chips.forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
       document.querySelectorAll(".tenant").forEach(function (t) {
-        t.hidden = !(f === "alle" || t.getAttribute("data-gp") === f);
+        t.hidden = !(f === "alle" || (t.getAttribute("data-gp") || "").split(" ").indexOf(f) > -1);
       });
     });
   });
