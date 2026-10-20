@@ -1786,3 +1786,4 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 @media (max-width:900px){.closing2 .cl-art{justify-self:start;max-width:400px}}
 /* Footer: nur Schriftzug, ohne Gebäude */
 .site-footer .brand .mk{display:none!important}
+@media (max-width:640px){.f-mega{display:none!important}}
