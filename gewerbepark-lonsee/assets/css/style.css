@@ -1779,3 +1779,8 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 .wm2{border-left:0!important;padding-left:0!important}
 .wm2 .w2{justify-content:flex-end;margin-right:-.62em}
 .wm2 .w2::before,.wm2 .w2::after{display:none}
+/* Kontakt-Bild: neue Marke statt weißer Karte */
+.closing2 .cl-art{background:#000!important;padding:0!important;border-radius:16px!important;max-width:460px;justify-self:end;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 30px 60px -28px rgba(0,0,0,.7),0 0 60px -20px rgba(184,197,32,.35)!important}
+.closing2 .cl-bld{padding:0!important}
+.closing2 .cl-bld img{width:100%;height:auto;border-radius:16px}
+@media (max-width:900px){.closing2 .cl-art{justify-self:start;max-width:380px}}
