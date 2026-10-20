@@ -1797,3 +1797,5 @@ button.cl-art:hover .cl-bld img{transform:translateY(-4px)}
 @media (max-width:360px){.site-header .brand .mk-d img{height:24px}.site-header .wm2 .w1{font-size:13px}.site-header .wm2 .w2{font-size:7.5px;letter-spacing:.5em;margin-right:-.5em}.site-header .brand{gap:7px!important}}
 /* Einheitliches Grün im Logo */
 .wm2 .w1 em,.site-header .wm2 .w1 em,.site-footer .wm2 .w1 em{color:#B8C520!important}
+/* Umlaute (Ä Ö Ü) in animierten Überschriften nicht abschneiden */
+html.anim .split .sw{padding-top:.2em;margin-top:-.2em}
