@@ -1812,3 +1812,17 @@ html.anim .split .sw{padding-top:.2em;margin-top:-.2em}
 .closing2 .btn.ghost{background:transparent!important;color:var(--ink)!important;border-color:rgba(27,31,34,.3)!important}
 .closing2 .btn.ghost:hover{border-color:var(--ink)!important}
 .closing2 .cl-art{max-width:560px}
+/* Mieter ohne Logo: Namenszug als Platzhalter */
+.tenant .lg-txt span{font-family:"Montserrat",Arial,sans-serif;font-weight:800;font-size:clamp(18px,1.6vw,24px);letter-spacing:.08em;color:#3F464E;line-height:1;text-align:center}
+/* Freie Fläche */
+.tenant.free{background:#F7F8EC;border-style:dashed!important}
+.tenant .lg-free{flex-direction:column;gap:4px}
+.tenant .lg-free b{font-family:"Montserrat",Arial,sans-serif;font-weight:800;font-size:clamp(24px,2.2vw,32px);color:#1B1F22;line-height:1}
+.tenant .lg-free span{font-family:"Montserrat",Arial,sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#727C10}
+/* Laufband: Namenszug statt Logo */
+.mq-txt{font-family:"Montserrat",Arial,sans-serif;font-weight:800;font-size:22px;letter-spacing:.1em;color:#fff;opacity:.78;white-space:nowrap;transition:opacity .3s,color .3s}
+.marquee.dark li a:hover .mq-txt{opacity:1;color:var(--orange)}
+.mq-txt.sm{font-size:13px;color:#3F464E;opacity:1;letter-spacing:.06em}
+@media (max-width:760px){.mq-txt{font-size:16px}}
+.mq-txt,a:hover .mq-txt{text-decoration:none!important}
+.marquee li a,.subhead+div a{text-decoration:none!important}
